@@ -1,0 +1,220 @@
+
+html {
+    /* Hides scrollbar while still allowing you to scroll*/
+    scrollbar-width: none;
+}
+
+body {
+    margin: 0;
+    background: #050510 url('spaceBackground.png') center / cover no-repeat fixed;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+h1 {
+    margin: 5px 0;
+    margin-top: auto;
+    color: #00ffcc;
+    text-shadow: 0 0 10px #00ffcc;
+}
+
+p#name{
+    font-size: 25px;
+    color: #00ffcc;
+    text-align: center;
+}
+
+p#hint {
+    color: #00ffcc;
+    text-align: center;
+    font-size: 20px;
+}
+
+p#lore {
+    color: #00ffcc;
+    font-size: 18px;
+    text-align: left;
+}
+
+div#lorebox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: left;
+    height: 145px;
+}
+
+span#cursor {
+    color: white;
+    animation: blink 2s linear infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 100%;
+    }
+    50% {
+        opacity: 50%;
+    }
+    100% {
+        opacity: 0%;
+    }
+}
+
+
+#scoreboard {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #ffe816
+}
+ 
+canvas {
+    border: 2px solid #00ffcc;
+    background: radial-gradient(circle, #111530 0%, #050510 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 204, 0.3);
+}
+        
+#playAgain {
+    margin-top: 10px;
+    padding: 8px 24px;
+    font-family: inherit;
+    font-size: 22px;
+    font-weight: bold;
+    width: 15%;
+    height: 60px;
+    color: #00ffcc;
+    background: #050510;
+    border: 2px solid #00ffcc;
+    cursor: pointer;
+    box-shadow: 0 8px 0 #03856b;
+}
+        
+#playAgain:not(:disabled)::after {
+    content: '\00bb';
+    display: inline-block;
+    width: 0;
+    opacity: 0;
+    top: 0;
+    right: -15px;
+    margin-left: 0;
+}
+
+#playAgain:active:not(:disabled) {
+    box-shadow: 0 1px 0 #03856b;
+    transform: translateY(3px);
+}
+
+#playAgain:hover:not(:disabled) {
+    background: #9aa1a0; 
+    color: #050510;
+}
+     
+#playAgain:hover:not(:disabled)::after {
+    opacity: 1;
+    right: 10px;
+    width: 18px;
+    margin-left: 10px;
+}
+
+#playAgain:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+  
+.instructions {
+    margin-top: 10px;
+    color: #ffd700;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Media Query for Mobile Devices with screen from 0 up to 480px */
+@media screen and (max-width: 480px) {
+
+    div#lorebox {
+        width: 80vw;
+        max-width: 500px;
+        height: auto;
+    }
+
+    p#name {
+        font-size: 18px;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    p#lore, p#hint {
+        font-size: 16px;
+    }
+
+    #playAgain {
+        width: 40vw;
+        min-width: 100px;
+        max-width: 120px;
+    }
+
+    h1 {
+        font-size: 20px;
+        text-align: center;
+        overflow-wrap: anywhere;
+    }
+
+    canvas {
+        width: 86vw;
+        height: auto;
+    }
+    .instructions {
+        text-align: center;
+        width: 80vw;
+        margin-right: 4px;
+    }
+}
+
+/* Media query for Tablets and Desktops that go from 481px and up*/
+@media screen and (min-width: 481px) {
+    #playAgain {
+        width: 140px
+    }
+
+    canvas {
+        width: 650px;
+        max-width: 80vw;
+        height: auto;
+    }
+
+    div#lorebox {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        margin-right: 12vw;
+        margin-left: 12vw;
+        max-width: 790px;
+    }
+
+    p#lore {
+        font-size: 22px;
+    }
+
+    p#hint {
+        font-size: 19px;
+    }
+
+    p#name {
+        font-size: 28px;
+    }
+
+    .instructions {
+        font-size: 22px;
+        margin-left: 12vw;
+        margin-right: 12vw;
+    }
+}
